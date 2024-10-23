@@ -45,26 +45,33 @@
         int x = int.Parse(Console.ReadLine());
         Console.Write("nhap y: ");
         int y = int.Parse(Console.ReadLine());
-        if (x < 0)
+        if (x == 0 && y == 0)
         {
-            if (y > 0)
-            {
-                Console.WriteLine($"({x};{y}) in the 4th quadrant");
-            }
-            else
-            {
-                Console.WriteLine($"({x};{y}) in the 3th quadrant");
-            }
+            Console.WriteLine($"({x};{y}) khong thuoc quadrant nao");
         }
         else
         {
-            if (y > 0)
+            if (x < 0)
             {
-                Console.WriteLine($"({x};{y}) in the 1th quadrant");
+                if (y > 0)
+                {
+                    Console.WriteLine($"({x};{y}) in the 3th quadrant");
+                }
+                else
+                {
+                    Console.WriteLine($"({x};{y}) in the 2th quadrant");
+                }
             }
             else
             {
-                Console.WriteLine($"({x};{y}) in the 2th quadrant");
+                if (y > 0)
+                {
+                    Console.WriteLine($"({x};{y}) in the 1th quadrant");
+                }
+                else
+                {
+                    Console.WriteLine($"({x};{y}) in the 4th quadrant");
+                }
             }
         }
     }
