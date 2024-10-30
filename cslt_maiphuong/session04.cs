@@ -1,13 +1,48 @@
-﻿internal class Session_04
+﻿internal class Session_04_00
 {
-    public static void Main()
+    public static void Main4()
     {
-        Question_01();
+        Session04_00();
     }
-    public static void Question_01()
-        //chay so tu 1-10, doan so dung theo may da chon
+    public static void Session04_00()
     {
-        Random rnd = new Random();
-        int comp_num = rnd.Next(0, 10) + 1;
-        Console.Write(comp_num"Ban doan so may?")
+        do
+        {
+            //Máy nghĩ ngẫu nhiên 1 số
+            Random rnd = new Random();
+            int comp_num = rnd.Next(0, 10) + 1;
+            //Hỏi người dùng đoán số
+            //Đoán cho đến chừng nào đúng thì thôi
+            int count = 0;
+            bool isContinue = true;
+            do
+            {
+                count++;
+                Console.Write("Ban doan so may? <1...10>");
+                int user_num = int.Parse(Console.ReadLine());
+                //Kiểm tra kết quả
+                if (user_num == comp_num)
+                {
+                    Console.WriteLine("Ban la thien tai");
+                    isContinue = false;
+                }
+                else
+                {
+                    if (user_num > comp_num)
+                        Console.WriteLine("So ban doan lon hon may nghi");
+                    else
+                        Console.WriteLine("So ban doan nho hon may nghi");
+                }
+            } while (isContinue);
+
+            Console.WriteLine("==================================================");
+            Console.WriteLine("Choi nua khong? <C/K>: ");
+            string tl = Console.ReadLine();
+            if (tl.ToUpper().Equals("K"))
+            {
+                Console.WriteLine("Thang ma khong cho go. Lan sau khong choi nua!");
+                return;
+            }
+        } while (true);
     }
+}
